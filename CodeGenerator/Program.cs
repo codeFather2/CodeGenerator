@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CodeGenerator
 {
@@ -6,7 +7,10 @@ namespace CodeGenerator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var code = new UstNodesConverterGenerator().Generate();
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "Generated.cs"), code);
         }
+
     }
+
 }
